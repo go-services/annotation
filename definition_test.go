@@ -173,7 +173,7 @@ func TestDefinition_Check(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name: "SomeAnnotation",
+					Name: "SomeAnnotation",
 					parameters: map[string]attrValue{
 						"param": {
 							Str: pointerString("test"),
@@ -192,7 +192,7 @@ func TestDefinition_Check(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name: "SomeAnnotation",
+					Name: "SomeAnnotation",
 					parameters: map[string]attrValue{
 						"param": {
 							Str: pointerString("test"),
@@ -203,7 +203,7 @@ func TestDefinition_Check(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name: "Should return error if the annotation name does not matches the definition name",
+			name: "Should return error if the annotation Name does not matches the definition Name",
 			fields: fields{
 				name:                   "SomeOtherAnnotation",
 				allowUnknownParameters: true,
@@ -217,7 +217,7 @@ func TestDefinition_Check(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name: "SomeAnnotation",
+					Name: "SomeAnnotation",
 					parameters: map[string]attrValue{
 						"param": {
 							Str: pointerString("test"),
@@ -236,7 +236,7 @@ func TestDefinition_Check(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name: "SomeAnnotation",
+					Name: "SomeAnnotation",
 					parameters: map[string]attrValue{
 						"param": {
 							Str: pointerString("test"),
@@ -261,7 +261,7 @@ func TestDefinition_Check(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name:       "SomeAnnotation",
+					Name:       "SomeAnnotation",
 					parameters: map[string]attrValue{},
 				},
 			},
@@ -306,7 +306,7 @@ func TestParameterDefinition_checkParameter(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name: "SomeAnnotation",
+					Name: "SomeAnnotation",
 					parameters: map[string]attrValue{
 						"param": {
 							Str: pointerString("test"),
@@ -325,7 +325,7 @@ func TestParameterDefinition_checkParameter(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name:       "SomeAnnotation",
+					Name:       "SomeAnnotation",
 					parameters: map[string]attrValue{},
 				},
 			},
@@ -340,7 +340,7 @@ func TestParameterDefinition_checkParameter(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name:       "SomeAnnotation",
+					Name:       "SomeAnnotation",
 					parameters: map[string]attrValue{},
 				},
 			},
@@ -355,7 +355,7 @@ func TestParameterDefinition_checkParameter(t *testing.T) {
 			},
 			args: args{
 				annotation: Annotation{
-					name: "SomeAnnotation",
+					Name: "SomeAnnotation",
 					parameters: map[string]attrValue{
 						"param": {
 							I: pointerInt(2),

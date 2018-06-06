@@ -19,14 +19,14 @@ type Value interface {
 }
 
 type Annotation struct {
-	name       string
+	Name       string
 	parameters map[string]attrValue
 }
 
 // NewAnnotation creates a new Annotation.
 func NewAnnotation(name string) Annotation {
 	return Annotation{
-		name:       name,
+		Name:       name,
 		parameters: map[string]attrValue{},
 	}
 }

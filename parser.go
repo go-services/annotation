@@ -10,6 +10,7 @@ import (
 
 type attrValue struct {
 	Str    *string  `parser:"@String"`
+	RStr   *string  `parser:"| @RawString"`
 	I      *int     `parser:"| @Int"`
 	F      *float64 `parser:"| @Float"`
 	VTrue  bool     `parser:"| @'true'"`

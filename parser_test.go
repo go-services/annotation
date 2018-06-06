@@ -21,7 +21,7 @@ func TestParse(t *testing.T) {
 				s: "@MyAnnotation()",
 			},
 			want: &Annotation{
-				name:       "MyAnnotation",
+				Name:       "MyAnnotation",
 				parameters: map[string]attrValue{},
 			},
 		},
@@ -31,7 +31,7 @@ func TestParse(t *testing.T) {
 				s: "@MyAnnotation(string='abc',int=1,bool=true,float=2.2)",
 			},
 			want: &Annotation{
-				name: "MyAnnotation",
+				Name: "MyAnnotation",
 				parameters: map[string]attrValue{
 					"string": {
 						Str: pointerString("abc"),
@@ -49,20 +49,40 @@ func TestParse(t *testing.T) {
 			},
 		},
 		{
+			name: "Should parse multi line annotation string with parameters",
+			args: args{
+				s: `@Annotation(
+					Name = "Benjamin Franklin",
+					date = "3/27/2003"
+					)`,
+			},
+			want: &Annotation{
+				Name: "Annotation",
+				parameters: map[string]attrValue{
+					"Name": {
+						Str: pointerString("Benjamin Franklin"),
+					},
+					"date": {
+						Str: pointerString("3/27/2003"),
+					},
+				},
+			},
+		},
+		{
 			name: "Should return an error if annotation not found",
 			args: args{
 				s: "No annotation here",
 			},
-			want: nil,
-			wantErr:true,
+			want:    nil,
+			wantErr: true,
 		},
 		{
 			name: "Should return an error if annotation is malformed",
 			args: args{
 				s: "@MyAnnotation(string=)",
 			},
-			want: nil,
-			wantErr:true,
+			want:    nil,
+			wantErr: true,
 		},
 	}
 	for _, tt := range tests {
@@ -128,9 +148,9 @@ func Test_attrValue_String(t *testing.T) {
 			want: "false",
 		},
 		{
-			name: "Should return an empty string for unknown cases",
+			name:   "Should return an empty string for unknown cases",
 			fields: fields{},
-			want: "",
+			want:   "",
 		},
 	}
 	for _, tt := range tests {
@@ -486,6 +506,17 @@ func Test_parse(t *testing.T) {
 			args: args{
 				a: &ann{},
 				s: "@MyAnnotation(my_int=2)",
+			},
+		},
+		{
+			name:    "Should parse annotation multiple lines",
+			wantErr: false,
+			args: args{
+				a: &ann{},
+				s: `@Annotation(
+					Name = "Benjamin Franklin",
+					date = "3/27/2003"
+					)`,
 			},
 		},
 		{

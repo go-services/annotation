@@ -20,7 +20,7 @@ func TestNewAnnotation(t *testing.T) {
 				name: "MyAnnotation",
 			},
 			want: Annotation{
-				name:       "MyAnnotation",
+				Name:       "MyAnnotation",
 				parameters: map[string]attrValue{},
 			},
 		},
@@ -90,7 +90,7 @@ func TestAnnotation_Get(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			ad := &Annotation{
-				name:       tt.fields.name,
+				Name:       tt.fields.name,
 				parameters: tt.fields.parameters,
 			}
 			if got := ad.Get(tt.args.name); !reflect.DeepEqual(got, tt.want) {
@@ -154,7 +154,7 @@ func TestAnnotation_set(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			ad := &Annotation{
-				name:       tt.fields.name,
+				Name:       tt.fields.name,
 				parameters: tt.fields.parameters,
 			}
 			ad.set(tt.args.name, tt.args.value)
