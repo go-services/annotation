@@ -79,7 +79,7 @@ func TestAnnotation_Get(t *testing.T) {
 		{
 			name: "Should return an empty value if the parameters is nil",
 			fields: fields{
-				name:       "MyAnnotation",
+				name: "MyAnnotation",
 			},
 			args: args{
 				name: "test",

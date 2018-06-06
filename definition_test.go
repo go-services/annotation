@@ -53,11 +53,11 @@ func TestNewDefinition(t *testing.T) {
 		{
 			name: "Should return a new definition",
 			args: args{
-				name:                   "MyDefinition",
+				name: "MyDefinition",
 				allowUnknownParameters: true,
 			},
 			want: Definition{
-				name:                   "MyDefinition",
+				name: "MyDefinition",
 				allowUnknownParameters: true,
 			},
 		},
@@ -89,7 +89,7 @@ func TestDefinition_allowParameter(t *testing.T) {
 		{
 			name: "Should return true if unknown parameters are allowed",
 			fields: fields{
-				name:                   "SomeAnnotation",
+				name: "SomeAnnotation",
 				allowUnknownParameters: true,
 				parameters:             []ParameterDefinition{},
 			},
@@ -101,7 +101,7 @@ func TestDefinition_allowParameter(t *testing.T) {
 		{
 			name: "Should return true if unknown parameters are not allowed but parameter exists",
 			fields: fields{
-				name:                   "SomeAnnotation",
+				name: "SomeAnnotation",
 				allowUnknownParameters: false,
 				parameters: []ParameterDefinition{
 					{
@@ -119,7 +119,7 @@ func TestDefinition_allowParameter(t *testing.T) {
 		{
 			name: "Should return false if unknown parameters are not allowed and the parameter does not exists",
 			fields: fields{
-				name:                   "SomeAnnotation",
+				name: "SomeAnnotation",
 				allowUnknownParameters: false,
 				parameters:             []ParameterDefinition{},
 			},
@@ -132,7 +132,7 @@ func TestDefinition_allowParameter(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			d := Definition{
-				name:                   tt.fields.name,
+				name: tt.fields.name,
 				allowUnknownParameters: tt.fields.allowUnknownParameters,
 				parameters:             tt.fields.parameters,
 			}
@@ -161,7 +161,7 @@ func TestDefinition_Check(t *testing.T) {
 		{
 			name: "Should not return error if the annotation matches the definition",
 			fields: fields{
-				name:                   "SomeAnnotation",
+				name: "SomeAnnotation",
 				allowUnknownParameters: true,
 				parameters: []ParameterDefinition{
 					{
@@ -186,7 +186,7 @@ func TestDefinition_Check(t *testing.T) {
 		{
 			name: "Should not return error if the definition allows unknown parameter",
 			fields: fields{
-				name:                   "SomeAnnotation",
+				name: "SomeAnnotation",
 				allowUnknownParameters: true,
 				parameters:             []ParameterDefinition{},
 			},
@@ -205,7 +205,7 @@ func TestDefinition_Check(t *testing.T) {
 		{
 			name: "Should return error if the annotation Name does not matches the definition Name",
 			fields: fields{
-				name:                   "SomeOtherAnnotation",
+				name: "SomeOtherAnnotation",
 				allowUnknownParameters: true,
 				parameters: []ParameterDefinition{
 					{
@@ -230,7 +230,7 @@ func TestDefinition_Check(t *testing.T) {
 		{
 			name: "Should return error if the definition does not allow unknown parameters but they exist",
 			fields: fields{
-				name:                   "SomeAnnotation",
+				name: "SomeAnnotation",
 				allowUnknownParameters: false,
 				parameters:             []ParameterDefinition{},
 			},
@@ -249,7 +249,7 @@ func TestDefinition_Check(t *testing.T) {
 		{
 			name: "Should return error if the definition parameter definitions return error",
 			fields: fields{
-				name:                   "SomeAnnotation",
+				name: "SomeAnnotation",
 				allowUnknownParameters: false,
 				parameters: []ParameterDefinition{
 					{
@@ -271,7 +271,7 @@ func TestDefinition_Check(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			d := &Definition{
-				name:                   tt.fields.name,
+				name: tt.fields.name,
 				allowUnknownParameters: tt.fields.allowUnknownParameters,
 				parameters:             tt.fields.parameters,
 			}

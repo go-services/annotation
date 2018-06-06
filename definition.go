@@ -16,13 +16,13 @@ type Definition struct {
 
 type ParameterDefinition struct {
 	// name the parameter name
-	name     string
+	name string
 
 	// required tells if the parameter is required
 	required bool
 
 	// tp shows the required type of the annotation
-	tp       ValueType
+	tp ValueType
 }
 
 func NewParameterDefinition(name string, required bool, parameterType ValueType) ParameterDefinition {
@@ -36,7 +36,7 @@ func NewParameterDefinition(name string, required bool, parameterType ValueType)
 // NewDefinition creates a new Annotation Definition.
 func NewDefinition(name string, allowUnknownParameters bool, parameters ...ParameterDefinition) Definition {
 	return Definition{
-		name:                   name,
+		name: name,
 		allowUnknownParameters: allowUnknownParameters,
 		parameters:             parameters,
 	}
