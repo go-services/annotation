@@ -1,15 +1,16 @@
-# Annotate [![Go Report Card](https://goreportcard.com/badge/github.com/go-services/annotation)](https://goreportcard.com/report/github.com/go-services/annotation) [![Coverage Status](https://coveralls.io/repos/github/go-services/annotation/badge.svg?branch=master)](https://coveralls.io/github/go-services/annotation?branch=master) [![Build Status](https://travis-ci.org/go-services/annotation.svg?branch=master)](https://travis-ci.org/go-services/annotation)
+# Annotation [![Go Report Card](https://goreportcard.com/badge/github.com/go-services/annotation)](https://goreportcard.com/report/github.com/go-services/annotation) [![Coverage Status](https://coveralls.io/repos/github/go-services/annotation/badge.svg?branch=master)](https://coveralls.io/github/go-services/annotation?branch=master) [![Build Status](https://travis-ci.org/go-services/annotation.svg?branch=master)](https://travis-ci.org/go-services/annotation)
 
-Annotate is a go package that allows parsing and read `Java style` annotation strings e.x `@SomeAnnotation(param="value")`
+Annotation is a go package that allows parsing and read `Java Style` annotation strings e.x `@SomeAnnotation(param="value")`, this package is used by `go-service` to
+read and parse annotations in comments.
 
 ## Install
 Using `go get`
 ```bash
-go get -u github.com/go-services/annotate
+go get -u github.com/go-services/annotation
 ```
 If you are using `dep` 
 ```bash
-dep ensure --add github.com/go-services/annotate
+dep ensure --add github.com/go-services/annotation
 ```
 
 ## Usage
@@ -35,7 +36,7 @@ func main() {
 }
 ```
 ## Definitions
-Annotate also provides a way to check if the annotation has the correct parameters, name.
+Annotation also provides a way to check if the annotation has the correct parameters, name.
 
 **ParameterDefinition**
 ```go
