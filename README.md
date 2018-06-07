@@ -26,7 +26,12 @@ import (
 )
 
 func main() {
-	annotationString := "@Annotation(stringParam='String Value', someInt=2, someBool=true, someFloat=2.5)"
+	annotationString := `@Annotation(
+                            stringParam='String Value',
+                            someInt=2,
+                            someBool=true,
+                            someFloat=2.5
+                        )`
 	ann, _ := annotation.Parse(annotationString)
 	fmt.Printf("Annotation Name: %s\n", ann.Name)                                // Annotation Name: Annotation
 	fmt.Printf("Annotation stringParam = %s\n", ann.Get("stringParam").String()) // Annotation stringParam = String Value
@@ -75,7 +80,12 @@ import (
 )
 
 func main() {
-	annotationString := "@Annotation(stringParam='String Value', someInt=2, someBool=true, someFloat=2.5)"
+    annotationString := `@Annotation(
+                        stringParam='String Value',
+                        someInt=2,
+                        someBool=true,
+                        someFloat=2.5
+                    )`
 	ann, _ := annotation.Parse(annotationString)
 	stringParam := annotation.NewParameterDefinition("stringParam", true, annotation.STRING)
 	someInt := annotation.NewParameterDefinition("someInt", true, annotation.INT)
