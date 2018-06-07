@@ -164,3 +164,83 @@ func TestAnnotation_set(t *testing.T) {
 		})
 	}
 }
+
+func TestAnnotation_String(t *testing.T) {
+	type fields struct {
+		Name       string
+		parameters map[string]attrValue
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		want   string
+	}{
+		{
+			name: "Should return the correct string representation of the annotation",
+			fields: fields{
+				Name:       "MyAnnotation",
+				parameters: map[string]attrValue{},
+			},
+			want: "@MyAnnotation()",
+		},
+		{
+			name: "Should return the correct string representation of the annotation",
+			fields: fields{
+				Name: "MyAnnotation",
+				parameters: map[string]attrValue{
+					"string": {
+						Str: pointerString("abc"),
+					},
+				},
+			},
+			want: "@MyAnnotation(string=\"abc\")",
+		},
+		{
+			name: "Should return the correct string representation of the annotation",
+			fields: fields{
+				Name: "MyAnnotation",
+				parameters: map[string]attrValue{
+					"int": {
+						I: pointerInt(1),
+					},
+				},
+			},
+			want: "@MyAnnotation(int=1)",
+		},
+		{
+			name: "Should return the correct string representation of the annotation",
+			fields: fields{
+				Name: "MyAnnotation",
+				parameters: map[string]attrValue{
+					"float": {
+						F: pointerFloat(2.2),
+					},
+				},
+			},
+			want: "@MyAnnotation(float=2.2000)",
+		},
+		{
+			name: "Should return the correct string representation of the annotation",
+			fields: fields{
+				Name: "MyAnnotation",
+				parameters: map[string]attrValue{
+					"bool": {
+						VTrue: true,
+					},
+				},
+			},
+			want: "@MyAnnotation(bool=true)",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			ad := &Annotation{
+				Name:       tt.fields.Name,
+				parameters: tt.fields.parameters,
+			}
+			if got := ad.String(); got != tt.want {
+				t.Errorf("Annotation.String() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

@@ -1,5 +1,11 @@
 package annotation
 
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
 // ValueType is a string that tells the type of the parsed parameter
 type ValueType string
 
@@ -48,22 +54,36 @@ func NewAnnotation(name string) Annotation {
 
 // Get returns the parameter value by name
 // if that parameter does not exist it will return an empty value of type 'UNKNOWN'
-func (ad *Annotation) Get(name string) Value {
-	if ad.parameters == nil {
+func (a *Annotation) Get(name string) Value {
+	if a.parameters == nil {
 		return attrValue{}
 	}
-	if v, ok := ad.parameters[name]; ok {
+	if v, ok := a.parameters[name]; ok {
 		return v
 	}
 	return attrValue{}
 }
 
-func (ad *Annotation) set(name string, value attrValue) {
-	if ad.parameters != nil {
-		ad.parameters[name] = value
+func (a *Annotation) set(name string, value attrValue) {
+	if a.parameters != nil {
+		a.parameters[name] = value
 	} else {
-		ad.parameters = map[string]attrValue{
+		a.parameters = map[string]attrValue{
 			name: value,
 		}
 	}
+}
+
+// String returns the annotation string
+func (a *Annotation) String() string {
+	s := fmt.Sprintf("@%s(", a.Name)
+	for k, p := range a.parameters {
+		switch p.Type() {
+		case STRING:
+			s += fmt.Sprintf("%s=%s, ", k, strconv.Quote(p.String()))
+		default:
+			s += fmt.Sprintf("%s=%s, ", k, p.String())
+		}
+	}
+	return strings.TrimSuffix(s, ", ") + ")"
 }
