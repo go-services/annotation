@@ -4,10 +4,19 @@ package annotation
 type ValueType string
 
 const (
-	STRING  ValueType = "string"
-	INT     ValueType = "int"
-	FLOAT   ValueType = "float"
-	BOOL    ValueType = "bool"
+	// STRING represents a string type parameter
+	STRING ValueType = "string"
+
+	// INT represents an int type parameter
+	INT ValueType = "int"
+
+	// FLOAT represents a float type parameter
+	FLOAT ValueType = "float"
+
+	// BOOL represents a bool type parameter
+	BOOL ValueType = "bool"
+
+	// UNKNOWN represents an unknown type parameter (usually if the parameter does not exist)
 	UNKNOWN ValueType = "unknown"
 )
 
@@ -37,7 +46,7 @@ func NewAnnotation(name string) Annotation {
 	}
 }
 
-// Fet returns the parameter value by name
+// Get returns the parameter value by name
 // if that parameter does not exist it will return an empty value of type 'UNKNOWN'
 func (ad *Annotation) Get(name string) Value {
 	if ad.parameters == nil {
