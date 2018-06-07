@@ -7,13 +7,14 @@ type Definition struct {
 	// Name is the Name of the Annotation e.x Hello for // @Hello().
 	name string
 
-	// should the definition allow unknown parameters
+	// should the definition allow unknown parameters for an annotation
 	allowUnknownParameters bool
 
 	// parameters has a list of parameter definitions
 	parameters []ParameterDefinition
 }
 
+// ParameterDefinition describes the parameter definition
 type ParameterDefinition struct {
 	// name the parameter name
 	name string
@@ -25,6 +26,7 @@ type ParameterDefinition struct {
 	tp ValueType
 }
 
+// NewParameterDefinition returns a new parameter definition
 func NewParameterDefinition(name string, required bool, parameterType ValueType) ParameterDefinition {
 	return ParameterDefinition{
 		name:     name,
@@ -54,6 +56,7 @@ func (d Definition) allowParameter(name string) bool {
 	return false
 }
 
+// Check checks if the annotation matches the definition
 func (d *Definition) Check(annotation Annotation) error {
 	if d.name != annotation.Name {
 		return fmt.Errorf("annotation Name `%s` does not match the definition Name %s", annotation.Name, d.name)

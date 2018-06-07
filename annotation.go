@@ -1,5 +1,6 @@
 package annotation
 
+// ValueType is a string that tells the type of the parsed parameter
 type ValueType string
 
 const (
@@ -10,6 +11,10 @@ const (
 	UNKNOWN ValueType = "unknown"
 )
 
+// Value is the interface that wraps the annotation parameter
+// tha parameter can be represented in all of the below types,
+// if the parameter value is not convertible to a type the value
+// will be the zero value of the type
 type Value interface {
 	String() string
 	Int() int
@@ -18,6 +23,7 @@ type Value interface {
 	Type() ValueType
 }
 
+// Annotation is the parsed annotation
 type Annotation struct {
 	Name       string
 	parameters map[string]attrValue
@@ -31,6 +37,8 @@ func NewAnnotation(name string) Annotation {
 	}
 }
 
+// Fet returns the parameter value by name
+// if that parameter does not exist it will return an empty value of type 'UNKNOWN'
 func (ad *Annotation) Get(name string) Value {
 	if ad.parameters == nil {
 		return attrValue{}
