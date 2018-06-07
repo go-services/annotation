@@ -1,4 +1,4 @@
-# Annotate
+# Annotate [![Go Report Card](https://goreportcard.com/badge/github.com/go-services/annotation)](https://goreportcard.com/report/github.com/go-services/annotation) [![Coverage Status](https://coveralls.io/repos/github/go-services/annotation/badge.svg?branch=master)](https://coveralls.io/github/go-services/annotation?branch=master) [![Build Status](https://travis-ci.org/go-services/annotation.svg?branch=master)](https://travis-ci.org/go-services/annotation)
 
 Annotate is a go package that allows parsing and read `Java style` annotation strings e.x `@SomeAnnotation(param="value")`
 
