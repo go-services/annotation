@@ -2,20 +2,19 @@
 
 
 [[projects]]
-  branch = "master"
   name = "github.com/alecthomas/participle"
   packages = [".","lexer"]
-  revision = "85ea23595898f36b1c777f413a4ea9e7f0288b99"
+  revision = "b9f46f081a3528d5f014eff480ff5263a97ff78f"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/exp"
   packages = ["ebnf"]
-  revision = "f5f346835693c5509c511fda7249a6f30302bf53"
+  revision = "f9fa0fefb1e1a5b6b06f9af99b9555e6263edcf9"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ef19a10ab1dbf2d1b944a1606f0a1b3a731390477e683bedf95e499459d142a9"
+  inputs-digest = "248c87a63d406ccb9073953d9d7b415caf6e7de5ce98be9ddb4926f1d1956301"
   solver-name = "gps-cdcl"
   solver-version = 1

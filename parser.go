@@ -49,7 +49,10 @@ func Parse(s string) (*Annotation, error) {
 
 // parse is a helper function that builds the parser.
 func parse(a interface{}, s string) (err error) {
-	p, _ := participle.Build(a, nil)
+	p, err := participle.Build(a)
+	if err != nil {
+		return err
+	}
 	if err := p.ParseString(s, a); err != nil {
 		return err
 	}
