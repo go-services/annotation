@@ -38,7 +38,7 @@ func NewParameterDefinition(name string, required bool, parameterType ValueType)
 // NewDefinition creates a new Annotation Definition.
 func NewDefinition(name string, allowUnknownParameters bool, parameters ...ParameterDefinition) Definition {
 	return Definition{
-		name: name,
+		name:                   name,
 		allowUnknownParameters: allowUnknownParameters,
 		parameters:             parameters,
 	}

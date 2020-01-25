@@ -64,7 +64,7 @@ func (a *Annotation) Get(name string) Value {
 	return attrValue{}
 }
 
-func (a *Annotation) set(name string, value attrValue) {
+func (a *Annotation) Set(name string, value attrValue) {
 	if a.parameters != nil {
 		a.parameters[name] = value
 	} else {

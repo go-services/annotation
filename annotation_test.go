@@ -116,7 +116,7 @@ func TestAnnotation_set(t *testing.T) {
 		want   map[string]attrValue
 	}{
 		{
-			name: "Should set the attribute",
+			name: "Should Set the attribute",
 			fields: fields{
 				name:       "MyAnnotation",
 				parameters: map[string]attrValue{},
@@ -157,7 +157,7 @@ func TestAnnotation_set(t *testing.T) {
 				Name:       tt.fields.name,
 				parameters: tt.fields.parameters,
 			}
-			ad.set(tt.args.name, tt.args.value)
+			ad.Set(tt.args.name, tt.args.value)
 			if !reflect.DeepEqual(ad.parameters, tt.want) {
 				t.Errorf("Annotation.parameters is %v, want %v", ad.parameters, tt.want)
 			}

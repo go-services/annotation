@@ -4,8 +4,9 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/alecthomas/participle"
 	"strconv"
+
+	"github.com/alecthomas/participle"
 )
 
 type attrValue struct {
@@ -42,7 +43,7 @@ func Parse(s string) (*Annotation, error) {
 	}
 	ant := NewAnnotation(a.Name)
 	for _, v := range a.Values {
-		ant.set(v.Key, *v.Value)
+		ant.Set(v.Key, *v.Value)
 	}
 	return &ant, err
 }
